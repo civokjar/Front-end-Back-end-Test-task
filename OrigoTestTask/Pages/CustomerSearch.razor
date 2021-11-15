@@ -1,0 +1,61 @@
+﻿@page "/Search"
+@inherits CustomerSearchComponent
+
+
+<h1>Customer Search</h1>
+
+<p>This component demonstrates fetching data from the server.</p>
+
+@if (customerSearchViewModel == null )
+{
+    <div class="loader"></div>
+}
+else
+{
+    if (customerSearchViewModel.ErrorMessages != null)
+    {
+    <div style="margin:20px 20px 20px 20px">
+
+        <div>Customer search was not succesfull because of :</div>
+        @foreach(var message in customerSearchViewModel?.ErrorMessages)
+        {
+        <div style="color:red">@message</div>
+        }
+    </div>
+    }
+    <section class="w-100 p-4 pb-4 d-flex justify-content-center align-items-center flex-column">
+        <div>
+            <div class="input-group">
+                <div class="form-outline">
+                    <input type="search" id="form1" class="form-control" />
+                    <label class="form-label" for="form1">Search</label>
+                </div>
+                <button type="button" @onclick="FetchCustomers" class="btn btn-primary ripple-surface" style="min-width: 60px;">
+                    <i class="fas fa-search">Search</i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>SocialSecurityNumber</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if(customerSearchViewModel?.Customers != null)
+            @foreach(var customer in customerSearchViewModel?.Customers)
+            {
+            <tr>
+                <td>@customer.Name</td>
+                <td>@customer.SocialSecurityNumber</td>
+
+            </tr>
+            }
+        </tbody>
+    </table>
+}
+
+

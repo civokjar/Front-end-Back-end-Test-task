@@ -1,0 +1,41 @@
+﻿@page "/Create"
+@inherits CustomerCreateComponent
+<span class="fi-star" title="star" aria-hidden="true"></span>
+<h1>Create customer</h1>
+@if(customerCreateViewModel.IsCreated)
+{
+    <div style="color:green"> Customer has been created sucessfully</div>
+}
+else
+{
+    <div style="margin:20px 20px 20px 20px"> 
+
+        @if(customerCreateViewModel?.ErrorMessages != null)
+        {
+            <div>Customer has not been created because of :</div>
+            @foreach(var message in customerCreateViewModel?.ErrorMessages)
+            {
+            <div style="color:red">@message</div>
+            }
+        }
+    </div>
+}
+<div class="col-md-12">
+    <p>Name :</p>
+</div>
+<div class="col-md-12">
+    <input @bind="customerCreateViewModel.Name" name="Name" />
+</div>
+<br />
+<br />
+<div class="col-md-12">
+    <p>SSN :</p>
+</div>
+<div class="col-md-12">
+    <input @bind="customerCreateViewModel.SocialSecurityNumber" name="Name" />
+</div>
+<br />
+<div class="col-md-12">
+    <button type="button" class="btn btn-primary" @onclick="CreateCustomer">Create me</button>
+</div>
+
