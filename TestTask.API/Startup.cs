@@ -46,7 +46,7 @@ namespace TestTask.API
             }); 
         
 
-            services.AddScoped<ICustomerDbConfiguration>(t=> new CustomerDbConfiguration(Configuration.GetConnectionString("CustomerDb")));
+            services.AddSingleton<ICustomerDbConfiguration>(t=> new CustomerDbConfiguration(Configuration.GetConnectionString("CustomerDb")));
 
             services.AddMediatR(typeof(CustomerRepository).Assembly);
             services.AddScoped<ICustomerRepository, CustomerRepository>();
