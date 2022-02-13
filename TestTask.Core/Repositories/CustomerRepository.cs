@@ -9,10 +9,11 @@ using System.Threading.Tasks;
 
 namespace TestTask.Core.Repositories
 {
-    public class CustomerRepository : BaseRepository, ICustomerRepository
+    public class CustomerRepository: BaseRepository, ICustomerRepository
     {
-        public CustomerRepository(IConfiguration configuration) : base(configuration)
+        public CustomerRepository(ICustomerDbConfiguration configuration  ) : base(configuration)
         {
+            
         }
 
         public async Task<Customer> Create(string name, string ssn)

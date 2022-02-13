@@ -1,0 +1,4 @@
+﻿namespace TestTask.Core.Repositories
+{
+  
+}

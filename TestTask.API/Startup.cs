@@ -43,9 +43,15 @@ namespace TestTask.API
             .ConfigureApiBehaviorOptions(options =>
             {
                 options.SuppressModelStateInvalidFilter = true;
-            });
+            }); 
+        
+
+            services.AddScoped<ICustomerDbConfiguration>(t=> new CustomerDbConfiguration(Configuration.GetConnectionString("CustomerDb")));
+
             services.AddMediatR(typeof(CustomerRepository).Assembly);
             services.AddScoped<ICustomerRepository, CustomerRepository>();
+      
+            
             DapperConfig.RegisterConventions();
 
             services.AddAutoMapper(typeof(Startup));

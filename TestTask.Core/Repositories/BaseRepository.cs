@@ -11,12 +11,13 @@ namespace TestTask.Core.Repositories
 {
     public class BaseRepository
     {
-        private readonly IConfiguration _configuration;
+       
         private string connectionString;
-        public BaseRepository(IConfiguration configuration)
+        public BaseRepository(IDbConfiguration configuration)
         {
-            _configuration = configuration;
-            connectionString = _configuration.GetConnectionString("CustomerDb");
+           
+            connectionString = configuration.ConnectionString;
+          
 
         }
         public async Task<T> QueryFirstAsync<T>(string query, object parameters = null)
