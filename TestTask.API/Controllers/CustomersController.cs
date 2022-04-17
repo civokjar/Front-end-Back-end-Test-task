@@ -45,12 +45,12 @@ namespace TestTask.API.Controllers
             return Ok(apiResponse);
 
         }
-        [ResponseType(typeof(IEnumerable<CreateCustomerResponse>))]
+        [ResponseType(typeof(CreateCustomerResponse))]
         [HttpPost]
-        public async Task<ActionResult<CustomerResponse>> Create([FromBody] CreateCustomerRequest request)
+        public async Task<ActionResult<CreateCustomerResponse>> Create([FromBody] CreateCustomerRequest request)
         {
 
-            CustomerResponse apiResponse = new CustomerResponse();
+            CreateCustomerResponse apiResponse = new CreateCustomerResponse();
            
             if (!ModelState.IsValid) 
             {

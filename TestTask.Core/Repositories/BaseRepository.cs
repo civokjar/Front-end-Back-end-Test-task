@@ -13,7 +13,7 @@ namespace TestTask.Core.Repositories
     {
        
         private string connectionString;
-        public BaseRepository(IDbConfiguration configuration)
+        public BaseRepository(IBaseDbConfiguration configuration)
         {
            
             connectionString = configuration.ConnectionString;

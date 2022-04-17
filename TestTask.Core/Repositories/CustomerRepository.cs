@@ -11,7 +11,7 @@ namespace TestTask.Core.Repositories
 {
     public class CustomerRepository: BaseRepository, ICustomerRepository
     {
-        public CustomerRepository(ICustomerDbConfiguration configuration  ) : base(configuration)
+        public CustomerRepository(ICustomerDbConfiguration configuration) : base(configuration)
         {
             
         }

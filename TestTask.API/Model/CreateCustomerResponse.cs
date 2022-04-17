@@ -5,9 +5,10 @@ using System.Threading.Tasks;
 
 namespace TestTask.API.Model
 {
-    public class CreateCustomerResponse
+    public class CreateCustomerResponse : BaseResponse
     {
-        public bool IsSucessfull { get; set; }
+        public CustomerData Customer { get; set; }
+ 
         public string ErrorMessage { get; set; }
     }
 }

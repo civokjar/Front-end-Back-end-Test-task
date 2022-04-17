@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace TestTask.Core.Repositories.Interfaces
 {
-    public interface ICustomerRepository
+    public interface ICustomerRepository 
     {
         Task<IEnumerable<Customer>> GetAll();
         Task<Customer> Create(string name, string ssn);

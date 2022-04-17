@@ -46,12 +46,13 @@ namespace TestTask.API
             }); 
         
 
-            services.AddSingleton<ICustomerDbConfiguration>(t=> new CustomerDbConfiguration(Configuration.GetConnectionString("CustomerDb")));
-
+       
             services.AddMediatR(typeof(CustomerRepository).Assembly);
-            services.AddScoped<ICustomerRepository, CustomerRepository>();
-      
-            
+
+            services.AddScoped<ICustomerRepository, CustomerRepository>()
+                .AddSingleton<ICustomerDbConfiguration>(t => new CustomerDbConfiguration(Configuration.GetConnectionString("CustomerDb")));
+
+            //services.AddSingleton<IDefaultDbConfiguration>(t => new DefaultDbConfiguration(Configuration.GetConnectionString("CustomerDb")));
             DapperConfig.RegisterConventions();
 
             services.AddAutoMapper(typeof(Startup));
