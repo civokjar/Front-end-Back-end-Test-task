@@ -40,7 +40,7 @@ namespace TestTask.API.Controllers
 
             var coreResponse =  await _mediatr.Send(new GetCustomersQuery { }).ConfigureAwait(false);
 
-            apiResponse.Customers = _mapper.Map<IEnumerable<CustomerData>>(coreResponse);
+            apiResponse.Customers = _mapper.Map<IEnumerable<Customer>>(coreResponse);
           
             return Ok(apiResponse);
 
@@ -86,7 +86,7 @@ namespace TestTask.API.Controllers
                 HttpContext.Response.StatusCode = (int)HttpStatusCode.InternalServerError;
                 return apiResponse;
             }
-            var apiCustomer = _mapper.Map<CustomerData>(coreCustomer);
+            var apiCustomer = _mapper.Map<Customer>(coreCustomer);
             apiResponse.Customer = apiCustomer;
             return Ok(apiResponse);
         }

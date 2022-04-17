@@ -7,7 +7,7 @@ namespace TestTask.API.Model
 {
     public class CreateCustomerResponse : BaseResponse
     {
-        public CustomerData Customer { get; set; }
+        public Customer Customer { get; set; }
  
         public string ErrorMessage { get; set; }
     }

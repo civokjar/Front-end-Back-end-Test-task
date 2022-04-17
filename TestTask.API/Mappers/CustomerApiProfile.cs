@@ -16,8 +16,8 @@ namespace TestTask.API.Mappers
         {
             CreateMap<CreateCustomerRequest, CreateCustomerCommand>();
 
-            CreateMap<Customer, CustomerResponse>();
-            CreateMap<Customer, CustomerData>();
+            CreateMap<Core.Model.Customer, CreateCustomerResponse>();
+            CreateMap<Core.Model.Customer, Model.Customer>();
         }
     }
 }

@@ -1,10 +1,7 @@
 ﻿using Dapper;
-using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace TestTask.Core.Repositories
@@ -17,7 +14,6 @@ namespace TestTask.Core.Repositories
         {
            
             connectionString = configuration.ConnectionString;
-          
 
         }
         public async Task<T> QueryFirstAsync<T>(string query, object parameters = null)

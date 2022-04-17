@@ -1,6 +1,6 @@
 ﻿namespace TestTask.API.Model
 {
-    public class CustomerData
+    public class Customer
     {
         public string Name { get; set; }
         public string SocialSecurityNumber { get; set; }
